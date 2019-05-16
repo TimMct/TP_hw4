@@ -31,7 +31,6 @@ public class AdministratorGUI {
 	
 	private JFrame adminWindow;
 	private WaiterGUI waiterWindow;
-	private ChefGUI chefWindow;
 	
 	private JPanel p1;
 	private JPanel p2;
@@ -63,12 +62,12 @@ public class AdministratorGUI {
 	private ArrayList<MenuItem> selectedProducts;
 	
 	
-	public AdministratorGUI(Restaurant r) {
+	public AdministratorGUI(Restaurant r, ChefGUI cW) {
 		
 		rp = r;//operatiile de restaurant
 		
 		waiterWindow = new WaiterGUI(r);
-		chefWindow = new ChefGUI(r);
+		//chefWindow = cW;
 		
 		
 		adminWindow = new JFrame("Admin");
@@ -362,10 +361,7 @@ public class AdministratorGUI {
 				quantity.setText("");
 				
 				waiterWindow.end();
-				chefWindow.end(); 
-				
 				waiterWindow = new WaiterGUI((Restaurant)rp);
-				chefWindow = new ChefGUI((Restaurant)rp);
 				
 				
 				saveWork((Restaurant)rp);

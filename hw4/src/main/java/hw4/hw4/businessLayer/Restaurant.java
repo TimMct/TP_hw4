@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Observable;
+import java.util.Observer;
 
 @SuppressWarnings("deprecation")
 public class Restaurant extends Observable implements RestaurantProcessing, Serializable{
@@ -13,7 +14,10 @@ public class Restaurant extends Observable implements RestaurantProcessing, Seri
 	private  ArrayList<Order> orderNames;
 	private  ArrayList<MenuItem> menu;
 	
-	public Restaurant() {
+	public Restaurant(Observer o) {
+		
+		addObserver(o);
+		
 		orders = new HashMap<Order, ArrayList<MenuItem>>();
 		orderNames = new ArrayList<Order>();
 		menu = new ArrayList<MenuItem>();
@@ -166,7 +170,7 @@ public class Restaurant extends Observable implements RestaurantProcessing, Seri
 		orderNames.add(o);
 		
 		setChanged(); 
-		notifyObservers(new Order(3));
+		notifyObservers(o);
 		
 		
 		assert isWellFormed();

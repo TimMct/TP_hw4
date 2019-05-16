@@ -2,11 +2,12 @@ package hw4.hw4.businessLayer;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class MenuItem implements Serializable{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	
 	private String name;
 	private double price;
 	private int quantity;

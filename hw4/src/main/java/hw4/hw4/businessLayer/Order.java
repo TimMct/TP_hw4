@@ -8,11 +8,12 @@ import java.util.Date;
 //am folosit cod de aici https://stackabuse.com/how-to-get-current-date-and-time-in-java/
 //pentru a seta data unui nou Order ca data curenta
 
+@SuppressWarnings("serial")
 public class Order implements Serializable{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	
 	public int oId;
 	public Date date;
 	public int table;

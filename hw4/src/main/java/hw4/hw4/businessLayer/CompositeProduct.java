@@ -2,6 +2,7 @@ package hw4.hw4.businessLayer;
 
 import java.util.ArrayList;
 
+@SuppressWarnings("serial")
 public class CompositeProduct extends MenuItem{
 
 	private ArrayList<MenuItem> components;

@@ -7,6 +7,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 import hw4.hw4.businessLayer.Restaurant;
+import hw4.hw4.presentationLayer.ChefGUI;
 
 
 //am folosit cod de aici
@@ -30,9 +31,10 @@ public class RestaurantSerializator {
 	}
 	
 	
-	public static Restaurant deserialize() {
+	@SuppressWarnings("deprecation")
+	public static Restaurant deserialize(ChefGUI cGUI) {
 		
-		Restaurant r = new Restaurant();
+		Restaurant r = new Restaurant(cGUI);
 		try {
 			FileInputStream fileIn = new FileInputStream("restaurant.ser");
 			ObjectInputStream in = new ObjectInputStream(fileIn);
@@ -44,6 +46,9 @@ public class RestaurantSerializator {
 		} catch (ClassNotFoundException e) {
 			System.out.println(e.getMessage());
 		}
+		
+		r.addObserver(cGUI);
+		
 		return r;
 	}
 }

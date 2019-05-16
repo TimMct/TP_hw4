@@ -16,17 +16,10 @@ import hw4.hw4.businessLayer.Restaurant;
 @SuppressWarnings("deprecation")
 public class ChefGUI implements Observer{
 
-	//private static Restaurant r;
-	//private Observable obs;
-	
 	private JFrame chefWindow;
 	private JLabel newOrder;
 	
-	public ChefGUI(Restaurant r) {
-		
-		//rp = r;
-		
-		
+	public ChefGUI() {
 		
 		chefWindow = new JFrame("Chef");
 		chefWindow.setLocation(900, 100);
@@ -42,14 +35,12 @@ public class ChefGUI implements Observer{
 	}
 
 	public void update(Observable o, Object arg) {
+		newOrder.setText("The chef has to cook "+arg);
+		
 		if(o instanceof Restaurant && arg instanceof Order) {
-			newOrder.setText("The chef has to cook "+arg);
+			
 		}
 		
-	}
-	
-	public void end() {
-		chefWindow.dispose();
 	}
 	
 }
