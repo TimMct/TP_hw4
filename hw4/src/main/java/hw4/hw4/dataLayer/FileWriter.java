@@ -5,6 +5,8 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
+
+import hw4.hw4.businessLayer.CompositeProduct;
 import hw4.hw4.businessLayer.MenuItem;
 import hw4.hw4.businessLayer.Order;
 
@@ -38,8 +40,19 @@ public class FileWriter {
 			writer.println();
 			writer.println("Products: ");
 			for(MenuItem m : chosenProducts) {
-				writer.print(m+"   ");
-				writer.print(m.getPrice());
+				
+				if(!m.getName().contains("&")) {
+					writer.print(m+"   ");
+					writer.print(m.getPrice());
+					
+				} else {
+					for(MenuItem n : ((CompositeProduct) m).getComponents()) {
+						writer.print("composite   ");
+						writer.print(n+"   ");
+					}
+					writer.print(m.getPrice());
+				}
+				
 				writer.println();
 			}
 			

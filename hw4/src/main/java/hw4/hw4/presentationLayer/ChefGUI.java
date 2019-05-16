@@ -4,13 +4,10 @@ package hw4.hw4.presentationLayer;
 
 import java.util.Observable;
 import java.util.Observer;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-import hw4.hw4.businessLayer.Order;
-import hw4.hw4.businessLayer.Restaurant;
 
 
 @SuppressWarnings("deprecation")
@@ -36,11 +33,6 @@ public class ChefGUI implements Observer{
 
 	public void update(Observable o, Object arg) {
 		newOrder.setText("The chef has to cook "+arg);
-		
-		if(o instanceof Restaurant && arg instanceof Order) {
-			
-		}
-		
 	}
 	
 }
